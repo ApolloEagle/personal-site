@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 
-const Intro = () => {
-  let [isShowing, setIsShowing] = useState(false);
+const Intro = (): JSX.Element => {
+  let [isShowing, setIsShowing] = useState<boolean>(false);
 
   useEffect(() => {
     setIsShowing(true);
@@ -14,7 +14,7 @@ const Intro = () => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-1000"
+          enter="transition duration-500 delay-300"
           enterFrom="opacity-0 -translate-y-10"
           enterTo="opacity-100 translate-y-0"
         >
@@ -25,7 +25,7 @@ const Intro = () => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-1000 delay-200"
+          enter="transition duration-500 delay-400"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -39,7 +39,7 @@ const Intro = () => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-1000 delay-300"
+          enter="transition duration-500 delay-500"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -47,14 +47,14 @@ const Intro = () => {
             I am a software engineer who specializes in building{" "}
             <strong className="font-semibold text-sky-500">React</strong> and{" "}
             <strong className="font-semibold text-sky-500">React Native</strong>{" "}
-            apps. I am passionate about creating efficient and intuitive
+            applications. I am passionate about creating efficient and intuitive
             interfaces.
           </p>
         </Transition>
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-1000 delay-500"
+          enter="transition duration-500 delay-600"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
