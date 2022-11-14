@@ -9,7 +9,7 @@ const GitHub = (): JSX.Element => {
       rel="noreferrer"
     >
       <svg
-        className="block w-6 h-6 sm:w-8 sm:h-8 fill-gray-400 hover:fill-white hover:scale-125 transition duration-300 ease-in-out animate-[dropIn_1.5s] sm:animate-[dropIn_1s]"
+        className="block w-6 h-6 sm:w-8 sm:h-8 fill-gray-400 hover:fill-white hover:scale-110 transition duration-300 ease-in-out"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
       >

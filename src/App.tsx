@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo, Intro, Links } from "./components";
+import { Logo, Intro, Links, Skills } from "./components";
 import "./index.css";
 
 const App = () => {
@@ -9,11 +9,9 @@ const App = () => {
         <Logo />
         <Links />
       </div>
-      <div className="grid grid-flow-row grid-rows-2 sm:grid-flow-cols sm:grid-cols-2 sm:grid-rows-1 gap-6 h-3/4 sm:h-4/5 pt-10">
+      <div className="grid grid-flow-row grid-rows-2 sm:grid-flow-cols sm:grid-cols-2 sm:grid-rows-1 gap-6 h-3/4 sm:h-4/5 mt-4 sm:mt-0">
         <Intro />
-        <div className="flex flex-row justify-center items-center text-white bg-slate-900">
-          Skills Here
-        </div>
+        <Skills />
       </div>
     </div>
   );
