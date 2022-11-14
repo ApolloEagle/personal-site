@@ -25,7 +25,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-400"
+          enter="transition duration-500 delay-[400ms]"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -54,7 +54,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-600"
+          enter="transition duration-500 delay-[600ms]"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >

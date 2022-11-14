@@ -147,7 +147,7 @@ export const skills = [
     icon: <ReactIcon />,
   },
   {
-    name: "React Native",
+    name: "Native",
     icon: <ReactNative />,
   },
   {
