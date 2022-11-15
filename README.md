@@ -10,3 +10,31 @@
 </p>
 
 ![demo](https://raw.githubusercontent.com/ApolloEagle/personal-site/main/src/assets/demo.png)
+
+## Installation
+
+1. Install node using [nvm](https://github.com/nvm-sh/nvm)
+
+   ```sh
+   nvm install
+   ```
+
+2. Install dependencies
+
+   ```sh
+   npm i
+   ```
+
+3. Start the development server
+
+   ```sh
+   npm start
+   ```
+
+## Building
+
+Generate production build
+
+   ```sh
+   npm run build
+   ```
