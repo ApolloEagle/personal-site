@@ -5,7 +5,7 @@ import "./index.css";
 const App = () => {
   return (
     <div className="bg-slate-900 h-screen w-screen p-6 sm:p-10">
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center pb-2 sm:pb-0">
         <Logo />
         <Links />
       </div>

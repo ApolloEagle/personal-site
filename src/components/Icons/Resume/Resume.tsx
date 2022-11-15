@@ -2,7 +2,12 @@ import React from "react";
 
 const Resume = (): JSX.Element => {
   return (
-    <a className="block" href="/resume.pdf" target="_blank">
+    <a
+      className="block"
+      href="/resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

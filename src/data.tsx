@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Angular,
   AWS,
   Bootstrap,
   Docker,
@@ -38,6 +39,10 @@ import {
 } from "./components/Icons";
 
 export const skills = [
+  {
+    name: "Angular",
+    icon: <Angular />,
+  },
   {
     name: "AWS",
     icon: <AWS />,
