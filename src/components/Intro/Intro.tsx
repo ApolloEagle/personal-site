@@ -9,12 +9,12 @@ const Intro = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center bg-slate-900">
+    <div className="flex flex-row justify-center items-center bg-slate-900 mt-0 sm:mt-4">
       <div>
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-[600ms]"
+          enter="transition duration-500 delay-700"
           enterFrom="opacity-0 -translate-y-10"
           enterTo="opacity-100 translate-y-0"
         >
@@ -25,7 +25,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-700"
+          enter="transition duration-500 delay-[800ms]"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -40,7 +40,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-[800ms]"
+          enter="transition duration-500 delay-[900ms]"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -55,7 +55,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-[900ms]"
+          enter="transition duration-500 delay-1000"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >
@@ -71,7 +71,7 @@ const Intro = (): JSX.Element => {
         <Transition
           appear={true}
           show={isShowing}
-          enter="transition duration-500 delay-[1000ms]"
+          enter="transition duration-500 delay-[1100ms]"
           enterFrom="opacity-0 -translate-y-8"
           enterTo="opacity-100 translate-y-0"
         >

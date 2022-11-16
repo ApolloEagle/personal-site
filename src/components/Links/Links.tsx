@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Email, GitHub, Resume } from "../Icons";
+import { Email, GitHub, Resume, AppStore } from "../Icons";
 import { Transition } from "@headlessui/react";
 
 const Links = (): JSX.Element => {
@@ -10,7 +10,7 @@ const Links = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="flex flex-row gap-12 pt-2 sm:pt-0">
+    <div className="flex flex-row gap-8 sm:gap-12 pt-2 sm:pt-0">
       <Transition
         appear={true}
         show={isShowing}
@@ -37,6 +37,15 @@ const Links = (): JSX.Element => {
         enterTo="opacity-100 translate-y-0"
       >
         <Resume />
+      </Transition>
+      <Transition
+        appear={true}
+        show={isShowing}
+        enter="transition duration-500 delay-300"
+        enterFrom="opacity-0 -translate-y-10"
+        enterTo="opacity-100 translate-y-0"
+      >
+        <AppStore />
       </Transition>
     </div>
   );

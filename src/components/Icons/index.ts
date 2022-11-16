@@ -1,6 +1,7 @@
 export * from "./GitHub";
 export * from "./Email";
 export * from "./Resume";
+export * from "./AppStore";
 export * from "./Angular";
 export * from "./AWS";
 export * from "./Bootstrap";
