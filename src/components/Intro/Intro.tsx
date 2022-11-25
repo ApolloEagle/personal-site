@@ -63,7 +63,7 @@ const Intro = (): JSX.Element => {
             <p className="text-slate-300 text-md sm:text-left sm:text-lg hidden sm:block">
               Here are some technologies I am currently using{" "}
             </p>
-            <p className="text-3xl px-2 animate-point hidden sm:block pb-2 sm:pb-4">
+            <p className="text-3xl px-2 animate-point hidden lg:block pb-2 sm:pb-4">
               &#128073;
             </p>
           </div>
