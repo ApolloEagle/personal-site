@@ -5,13 +5,53 @@
       overflow: hidden;
     }
     body {
-      font-family: "Roboto Slab", sans-serif;
+      font-family: "Montserrat", sans-serif;
+      background-color: #FEFCF9;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      font-size: 96px;
+      font-weight: bold;
+      color: rgb(55 65 81);
+      margin-top: -24px;
+      margin-bottom: -24px
+    }
+    img {
+      width: 64px;
+      height: 64px;
+      border:8px solid rgb(55 65 81);
+      border-radius: 9999px;
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    a {
+      padding: 12px;
+      background-color: #5EA985;
+      border-radius: 4px;
+      margin-top: 24px;
+      text-decoration: none;
+    }
+    #text {
+      color: rgb(229 231 235);
+      font-size: 20px;
     }
   </style>
   <head >
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto Slab'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link href="../src/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -36,17 +76,14 @@
     <title>Blake Reimer</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div>
+      <p>4</p>
+      <img
+      src="/profile.jpeg"
+        alt="profile"
+      />
+      <p>4</p>
+    </div>
+    <a href='/'><div id="text">Go Home</div></a>
   </body>
 </html>

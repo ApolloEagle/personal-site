@@ -4,17 +4,18 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        point: "point 1s ease-in-out infinite",
+        expand: "expand 0.3s ease-in-out",
       },
       keyframes: {
-        point: {
-          "0%, 100%": {
-            transform: "translateX(0%)",
-            "animation-timing-function": "cubic-bezier(0.8, 0, 1, 1)",
+        expand: {
+          "0%": {
+            transform: "scaleY(0)",
           },
-          "50%": {
-            transform: "translateX(50%)",
-            "animation-timing-function": "cubic-bezier(0, 0, 0.2, 1)",
+          "80%": {
+            transform: "scaleY(1.1)",
+          },
+          "100%": {
+            transform: "scaleY(1.0)",
           },
         },
       },
