@@ -1,25 +1,12 @@
 import React from "react";
 import "./index.css";
-import {
-  NavBar,
-  Bio,
-  Skills,
-  Projects,
-  Experience,
-  Education,
-} from "./components";
+import { ConstructionIcon } from "./components/Icons";
 
 const App = () => {
   return (
-    <div className="flex flex-col lg:flex-row bg-[#FEFCF9] h-screen w-screen">
-      <NavBar />
-      <div className="text-gray-700 w-full h-full overflow-auto scroll-smooth">
-        <Bio />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-      </div>
+    <div className="flex flex-col bg-[#FFD400] h-screen w-screen justify-center items-center">
+      <ConstructionIcon />
+      <div className="font-bold">Under Construction</div>
     </div>
   );
 };
