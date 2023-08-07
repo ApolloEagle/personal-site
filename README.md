@@ -9,8 +9,6 @@
   </a>
 </p>
 
-![demo](https://raw.githubusercontent.com/ApolloEagle/personal-site/main/src/assets/demo.png)
-
 ## Installation
 
 1. Install node using [nvm](https://github.com/nvm-sh/nvm)
@@ -35,6 +33,6 @@
 
 Generate production build
 
-   ```sh
-   npm run build
-   ```
+```sh
+npm run build
+```
