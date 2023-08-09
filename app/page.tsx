@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import { Analytics } from "@vercel/analytics/react";
 
 const navigation = [
   { name: "Experience", href: "/experience" },
@@ -11,6 +12,7 @@ const navigation = [
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-t from-blue-500 to-bg-black/20">
+      <Analytics />
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
