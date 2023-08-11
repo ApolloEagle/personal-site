@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 const navigation = [
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
+  { name: "Music", href: "/music" },
   { name: "Contact", href: "/contact" },
 ];
 

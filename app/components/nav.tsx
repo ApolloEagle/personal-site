@@ -5,10 +5,12 @@ import React, { useEffect, useRef, useState } from "react";
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const [openMenu, setOpenMenu] = useState(false);
   const [isIntersecting, setIntersecting] = useState(true);
   const navigation = [
     { name: "Experience", href: "/experience" },
     { name: "Projects", href: "/projects" },
+    { name: "Music", href: "/music" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -22,15 +24,30 @@ export const Navigation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const Menu: React.FC = () => (
+    <div className="flex flex-col justify-evenly items-center sm:hidden right-0 absolute w-screen h-56 mt-24 animate-slide-in">
+      {navigation.map((nav, idx) => (
+        <Link
+          key={idx}
+          href={nav.href}
+          className="duration-200 text-zinc-300 sm:text-zinc-400 hover:text-zinc-100 font-semibold"
+        >
+          {nav.name}
+        </Link>
+      ))}
+    </div>
+  );
+
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b  ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500  border-zinc-800 "
         }`}
       >
+        {openMenu && <Menu />}
         <div className="flex flex-row-reverse items-center justify-between py-6 px-6 sm:px-12 w-screen">
           <div className="hidden sm:flex justify-between gap-8">
             {navigation.map((nav, idx) => (
@@ -44,7 +61,11 @@ export const Navigation: React.FC = () => {
             ))}
           </div>
           <div className="flex sm:hidden">
-            <MoreHorizontal className="w-6 h-6" />
+            <MoreHorizontal
+              className="w-6 h-6"
+              color="white"
+              onClick={() => setOpenMenu(!openMenu)}
+            />
           </div>
           <Link
             href="/"
