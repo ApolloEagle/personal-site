@@ -36,3 +36,8 @@ yarn-error.log*
 next-env.d.ts
 
 .contentlayer
+
+# gcs
+/db/gcs.json
+
+.env

@@ -43,7 +43,7 @@ export default function Home() {
           <Link
             target="_blank"
             href="https://www.thoughtindustries.com/"
-            className="underline duration-500 hover:text-zinc-300"
+            className="underline duration-500 hover:text-zinc-200"
           >
             Thought Industries
           </Link>
