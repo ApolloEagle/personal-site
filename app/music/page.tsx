@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { AudioButton } from "../components/audio-button";
+import { AudioPlayer } from "../components/audio-player";
 import { ThreeScene } from "../components/three";
 
 export default function Music() {
@@ -48,7 +48,7 @@ export default function Music() {
       </div>
       <div className="animate-fade-in items-center justify-center flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <p className="text-white pb-12 text-lg">{title}</p>
-        <AudioButton url={audioURL} />
+        <AudioPlayer url={audioURL} />
       </div>
     </div>
   );
