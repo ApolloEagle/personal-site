@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Play, Pause, Rewind, FastForward } from "lucide-react";
 
-export const AudioPlayer = ({ url }: { url: string }) => {
+interface AudioPlayerProps {
+  url: string;
+  setModalOpen: (modalOpen: boolean) => void;
+}
+
+export const AudioPlayer = ({ url, setModalOpen }: AudioPlayerProps) => {
   const [play, setPlay] = useState<boolean>(false);
 
   const playSong = async () => {
@@ -31,6 +36,11 @@ export const AudioPlayer = ({ url }: { url: string }) => {
     }
   };
 
+  const handleSongEnd = () => {
+    setPlay(false);
+    setModalOpen(true);
+  };
+
   return (
     <div className="flex justify-center items-center">
       <button
@@ -43,17 +53,17 @@ export const AudioPlayer = ({ url }: { url: string }) => {
       >
         <span
           className={`inline-block transform -rotate-45 opacity-90 mr-1 ${
-            !play ? "opacity-50" : "opacity-100"
+            !play ? "opacity-30" : "opacity-100"
           }`}
         >
-          <Rewind fill="white" />
+          <Rewind fill="white" size={20} />
         </span>
       </button>
       <button
         className="flex justify-center items-center text-white border border-transparent text-lg bg-opacity-50 rounded h-20 w-20 transition duration-300 bg-black rotate-45 hover:border hover:border-white activate:border-white mx-12"
         onClick={() => playSong()}
       >
-        <span className="inline-block transform -rotate-45 opacity-90">
+        <span className="inline-block transform -rotate-45 opacity-90 ml-1">
           {play ? <Pause fill="white" /> : <Play fill="white" />}
         </span>
       </button>
@@ -67,14 +77,14 @@ export const AudioPlayer = ({ url }: { url: string }) => {
       >
         <span
           className={`inline-block transform -rotate-45 opacity-90 ml-1 ${
-            !play ? "opacity-50" : "opacity-100"
+            !play ? "opacity-30" : "opacity-100"
           }`}
         >
-          <FastForward fill="white" />
+          <FastForward fill="white" size={20} />
         </span>
       </button>
       {url && (
-        <audio id="audio">
+        <audio id="audio" onEnded={() => handleSongEnd()}>
           <source src={url} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>

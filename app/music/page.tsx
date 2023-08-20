@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 import { AudioPlayer } from "../components/audio-player";
 import { ThreeScene } from "../components/three";
+import Modal from "../components/modal";
 
 export default function Music() {
   const [title, setTitle] = useState<string>("");
   const [audioURL, setAudioURL] = useState<string>("");
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -36,6 +38,7 @@ export default function Music() {
   return (
     <div>
       <div className="absolute animate-music h-screen w-screen">
+        {modalOpen && <Modal setModalOpen={setModalOpen} />}
         <h1 className="flex justify-center mt-12 text-center text-white text-xl sm:text-4xl font-semibold tracking-[0.25em]">
           COLLECTIONS OF SOUND
         </h1>
@@ -48,8 +51,16 @@ export default function Music() {
       </div>
       <div className="animate-fade-in items-center justify-center flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <p className="text-white pb-12 text-lg">{title}</p>
-        <AudioPlayer url={audioURL} />
+        <AudioPlayer url={audioURL} setModalOpen={setModalOpen} />
       </div>
+      <button
+        className="animate-fade-in absolute bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        onClick={() => setModalOpen(true)}
+      >
+        <p className=" duration-150 text-zinc-300 hover:white tracking-[0.15em]">
+          SIGN UP
+        </p>
+      </button>
     </div>
   );
 }
