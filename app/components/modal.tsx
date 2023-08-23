@@ -12,15 +12,16 @@ interface ContactFormProps {
   };
 }
 
-const Modal = ({
-  setModalOpen,
-}: {
+interface ModalProps {
   setModalOpen: (modalOpen: boolean) => void;
-}) => {
+}
+
+const Modal = ({ setModalOpen }: ModalProps) => {
   const [form, setForm] = useState<ContactFormProps>({
     name: { value: "", error: "" },
     email: { value: "", error: "" },
   });
+  const [subscribed, setSubscribed] = useState<boolean>(false);
 
   const validateForm = () => {
     const emailRegex =
@@ -58,21 +59,48 @@ const Modal = ({
       : false;
   };
 
-  const handleSubscription = () => {
+  const handleSubscribe = async () => {
     if (validateForm()) {
-      console.log("YAY!!!!");
+      try {
+        const response = await fetch("/api/subscription", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+          }),
+        });
+
+        if (response.ok) {
+          const { subscription } = await response.json();
+          if (subscription) {
+            console.log("SUBSCRIPTION: ", subscription);
+          }
+        } else {
+          console.error("Subscription error.");
+        }
+      } catch (error) {
+        console.error("Subscription error.");
+      }
+
+      setSubscribed(true);
+      setTimeout(() => {
+        setModalOpen(false);
+      }, 1500);
     } else {
       console.log(form.name.error, form.email.error);
     }
   };
 
   return (
-    <div className="fixed z-20 top-0 left-0 w-full h-full flex items-center justify-center">
+    <div className="fixed z-20 top-0 left-0 w-full h-full flex items-center justify-center animate-fade-in-quick">
       <div className="flex flex-row justify-center items-center fixed w-full h-full z-20 bg-slate-400 opacity-50" />
       <div className="overflow-hidden duration-700 border rounded-none sm:rounded-xl bg-zinc-700 sm:bg-zinc-800/80 group md:gap-8 hover:border-zinc-300 border-none sm:border-zinc-400 h-full w-full md:w-2/3 lg:w-1/3 md:h-auto opacity-100 fixed z-20 flex flex-col md:rounded-lg p-6">
         <div className="flex justify-between items-center">
           <X color="transparent" />
-          <h2 className="self-center text-zinc-100 font-semibold text-lg">
+          <h2 className="self-center text-zinc-100 font-semibold text-lg tracking-[0.15em]">
             WANT TO HEAR MORE?
           </h2>
           <button onClick={() => setModalOpen(false)}>
@@ -81,13 +109,15 @@ const Modal = ({
         </div>
         <div className="flex sm:grid flex-col sm:grid-cols-1 justify-center sm:justify-normal gap-0 sm:gap-6 h-full">
           <div className="mb-6 sm:mb-0">
-            <label className="text-zinc-100">Name</label>
-            <p className="text-rose-600 text-sm mt-2">{form.name.error}</p>
+            <label className="text-zinc-100 tracking-[0.10em]">Name</label>
+            <p className="text-rose-600 text-sm mt-2 animate-fade-in-quick">
+              {form.name.error}
+            </p>
             <input
               type="text"
               className={`${
                 form.name.error ? "border-rose-600 border" : "border-none"
-              } w-full h-10 rounded-lg mt-2 bg-zinc-800 px-4 outline-none text-zinc-100`}
+              } w-full h-10 rounded-lg mt-2 bg-zinc-800 px-4 outline-none text-zinc-100 duration-1000`}
               onChange={(e) =>
                 setForm({
                   ...form,
@@ -97,13 +127,15 @@ const Modal = ({
             />
           </div>
           <div className="mb-6 sm:mb-0">
-            <label className="text-zinc-100">Email</label>
-            <p className="text-rose-600 text-sm mt-2">{form.email.error}</p>
+            <label className="text-zinc-100 tracking-[0.10em]">Email</label>
+            <p className="text-rose-600 text-sm mt-2 animate-fade-in-quick">
+              {form.email.error}
+            </p>
             <input
               type="email"
               className={`${
                 form.email.error ? "border-rose-600 border" : "border-none"
-              } w-full h-10 rounded-lg mt-2 bg-zinc-800 px-4 outline-none text-zinc-100`}
+              } w-full h-10 rounded-lg mt-2 bg-zinc-800 px-4 outline-none text-zinc-100 duration-1000`}
               onChange={(e) =>
                 setForm({
                   ...form,
@@ -112,9 +144,20 @@ const Modal = ({
               }
             />
           </div>
-          <button className="w-full mt-8" onClick={() => handleSubscription()}>
-            <div className="text-zinc-300 text-lg font-semibold duration-500 hover:text-white hover:text-xl">
-              SUBSCRIBE
+
+          <button
+            className="w-full mt-8"
+            onClick={() => handleSubscribe()}
+            disabled={subscribed}
+          >
+            <div
+              className={`text-zinc-300 text-lg font-semibold ${
+                !subscribed
+                  ? "duration-500 hover:text-white hover:text-xl"
+                  : "hover:none text-white"
+              } tracking-[0.15em]`}
+            >
+              {subscribed ? "SUBSCRIBED!" : "SUBSCRIBE"}
             </div>
           </button>
         </div>
