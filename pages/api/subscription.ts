@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/db/lib/prisma";
+import { sendEmail } from "@/db/sendEmail";
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,10 +12,13 @@ export default async function handler(
     try {
       const subscription = await prisma.subscription.create({
         data: {
-          name: name.value,
-          email: email.value,
+          name: name,
+          email: email,
         },
       });
+
+      await sendEmail();
+
       return res.status(200).json({ subscription });
     } catch (error) {
       return res.status(500).json({ error: "Subscription Error" });
