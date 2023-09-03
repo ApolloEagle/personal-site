@@ -51,7 +51,7 @@ export default function Music() {
       </div>
       <div className="animate-fade-in items-center justify-center flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <p className="text-white pb-12 text-lg">{title}</p>
-        <AudioPlayer url={audioURL} setModalOpen={setModalOpen} />
+        <AudioPlayer url={audioURL} />
       </div>
       <button
         className="animate-fade-in absolute bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2"

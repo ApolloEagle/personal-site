@@ -22,6 +22,7 @@ const Modal = ({ setModalOpen }: ModalProps) => {
     email: { value: "", error: "" },
   });
   const [subscribed, setSubscribed] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const validateForm = () => {
     const emailRegex =
@@ -61,6 +62,7 @@ const Modal = ({ setModalOpen }: ModalProps) => {
 
   const handleSubscribe = async () => {
     if (validateForm()) {
+      setLoading(true);
       try {
         const response = await fetch("/api/subscription", {
           method: "POST",
@@ -82,13 +84,12 @@ const Modal = ({ setModalOpen }: ModalProps) => {
           console.error("Subscription error.");
         }
       } catch (error) {
+        setLoading(false);
         console.error("Subscription error.");
       }
 
+      setLoading(false);
       setSubscribed(true);
-      setTimeout(() => {
-        setModalOpen(false);
-      }, 1500);
     } else {
       console.log(form.name.error, form.email.error);
     }
@@ -157,7 +158,11 @@ const Modal = ({ setModalOpen }: ModalProps) => {
                   : "hover:none text-white"
               } tracking-[0.15em]`}
             >
-              {subscribed ? "SUBSCRIBED!" : "SUBSCRIBE"}
+              {subscribed
+                ? "SUBSCRIBED!"
+                : loading
+                ? "SUBSCRIBING..."
+                : "SUBSCRIBE"}
             </div>
           </button>
         </div>

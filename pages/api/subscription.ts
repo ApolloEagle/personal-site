@@ -17,7 +17,7 @@ export default async function handler(
         },
       });
 
-      await sendEmail();
+      await sendEmail(name);
 
       return res.status(200).json({ subscription });
     } catch (error) {

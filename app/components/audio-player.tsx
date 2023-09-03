@@ -3,10 +3,9 @@ import { Play, Pause, Rewind, FastForward } from "lucide-react";
 
 interface AudioPlayerProps {
   url: string;
-  setModalOpen: (modalOpen: boolean) => void;
 }
 
-export const AudioPlayer = ({ url, setModalOpen }: AudioPlayerProps) => {
+export const AudioPlayer = ({ url }: AudioPlayerProps) => {
   const [play, setPlay] = useState<boolean>(false);
 
   const playSong = async () => {
@@ -38,7 +37,6 @@ export const AudioPlayer = ({ url, setModalOpen }: AudioPlayerProps) => {
 
   const handleSongEnd = () => {
     setPlay(false);
-    setModalOpen(true);
   };
 
   return (
