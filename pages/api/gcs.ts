@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { generateURL } from "@/db/generateURL";
+import { generateURL } from "@/lib";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,6 +10,7 @@ export default async function handler(
       const songs = await generateURL();
       return res.status(200).json({ songs });
     } catch (error) {
+      console.log(error);
       return res
         .status(500)
         .json({ error: "An error occurred while uploading the file" });

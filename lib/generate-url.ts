@@ -4,7 +4,7 @@ const bucketName = process.env.GCS_BUCKET;
 
 const storage = new GoogleStorage.Storage({
   projectId: process.env.GCS_PROJECT_ID,
-  keyFilename: "./db/gcs.json",
+  keyFilename: "./lib/gcs.json",
 });
 
 interface Song {
