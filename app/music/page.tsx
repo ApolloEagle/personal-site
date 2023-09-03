@@ -37,30 +37,35 @@ export default function Music() {
 
   return (
     <div>
-      <div className="absolute animate-music h-screen w-screen">
-        {modalOpen && <Modal setModalOpen={setModalOpen} />}
-        <h1 className="flex justify-center mt-12 text-center text-white text-xl sm:text-4xl font-semibold tracking-[0.25em]">
-          COLLECTIONS OF SOUND
-        </h1>
-        <h2 className="flex justify-center mt-4 sm:mt-12 text-center text-white text sm:text-xl tracking-[0.15em]">
-          BY BLAKE REIMER
-        </h2>
-      </div>
-      <div>
-        <ThreeScene />
-      </div>
-      <div className="animate-fade-in items-center justify-center flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <p className="text-white pb-12 text-lg">{title}</p>
-        <AudioPlayer url={audioURL} />
-      </div>
-      <button
-        className="animate-fade-in absolute bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        onClick={() => setModalOpen(true)}
-      >
-        <p className=" duration-150 text-zinc-300 hover:white tracking-[0.15em]">
-          SIGN UP
-        </p>
-      </button>
+      {title && (
+        <div>
+          <div className="absolute animate-music h-screen w-screen">
+            {modalOpen && <Modal setModalOpen={setModalOpen} />}
+            <h1 className="flex justify-center mt-12 text-center text-white text-xl sm:text-4xl font-semibold tracking-[0.25em]">
+              COLLECTIONS OF SOUND
+            </h1>
+            <h2 className="flex justify-center mt-4 sm:mt-12 text-center text-white text sm:text-xl tracking-[0.15em]">
+              BY BLAKE REIMER
+            </h2>
+          </div>
+          <div>
+            <ThreeScene />
+          </div>
+          <div className="animate-fade-in items-center justify-center flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <p className="text-white pb-12 text-lg">{title}</p>
+            <AudioPlayer url={audioURL} />
+          </div>
+          <button
+            className="animate-fade-in
+            absolute bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            onClick={() => setModalOpen(true)}
+          >
+            <p className=" duration-150 text-zinc-300 hover:white tracking-[0.15em]">
+              SIGN UP
+            </p>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
