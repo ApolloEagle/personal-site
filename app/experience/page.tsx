@@ -123,8 +123,8 @@ export default function Experience() {
                 {item.company}
               </div>
               <ul className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 list-disc ml-10 hidden sm:block">
-                {item.responsibilities.map((item) => (
-                  <li>{item}</li>
+                {item.responsibilities.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
             </div>

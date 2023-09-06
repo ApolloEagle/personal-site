@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 const navigation = [
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
+  { name: "Music", href: "/music" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -42,7 +43,7 @@ export default function Home() {
           <Link
             target="_blank"
             href="https://www.thoughtindustries.com/"
-            className="underline duration-500 hover:text-zinc-300"
+            className="underline duration-500 hover:text-zinc-200"
           >
             Thought Industries
           </Link>
