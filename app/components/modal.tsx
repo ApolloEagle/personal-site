@@ -14,9 +14,10 @@ interface ContactFormProps {
 
 interface ModalProps {
   setModalOpen: (modalOpen: boolean) => void;
+  song: string;
 }
 
-const Modal = ({ setModalOpen }: ModalProps) => {
+const Modal = ({ setModalOpen, song }: ModalProps) => {
   const [form, setForm] = useState<ContactFormProps>({
     name: { value: "", error: "" },
     email: { value: "", error: "" },
@@ -72,14 +73,12 @@ const Modal = ({ setModalOpen }: ModalProps) => {
           body: JSON.stringify({
             name: form.name.value,
             email: form.email.value,
+            song,
           }),
         });
 
         if (response.ok) {
-          const { subscription } = await response.json();
-          if (subscription) {
-            console.log("SUBSCRIPTION: ", subscription);
-          }
+          await response.json();
         } else {
           console.error("Subscription error.");
         }

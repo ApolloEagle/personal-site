@@ -40,9 +40,9 @@ export default function Music() {
       {title && (
         <div>
           <div className="absolute animate-music h-screen w-screen">
-            {modalOpen && <Modal setModalOpen={setModalOpen} />}
+            {modalOpen && <Modal setModalOpen={setModalOpen} song={title} />}
             <h1 className="flex justify-center mt-12 text-center text-white text-xl sm:text-4xl font-semibold tracking-[0.25em]">
-              COLLECTIONS OF SOUND
+              FROM UNDER A ROCK
             </h1>
             <h2 className="flex justify-center mt-4 sm:mt-12 text-center text-white text sm:text-xl tracking-[0.15em]">
               BY BLAKE REIMER

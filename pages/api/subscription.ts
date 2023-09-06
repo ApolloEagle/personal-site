@@ -7,7 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { name, email } = req.body;
+    const { name, email, song } = req.body;
 
     try {
       const subscription = await prisma.subscription.create({
@@ -17,7 +17,7 @@ export default async function handler(
         },
       });
 
-      await sendEmail(name);
+      await sendEmail(name, song);
 
       return res.status(200).json({ subscription });
     } catch (error) {
