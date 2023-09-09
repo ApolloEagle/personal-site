@@ -1,5 +1,5 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 
@@ -14,13 +14,6 @@ export const metadata: Metadata = {
     description: "Software engineer at Thought Industries.",
     url: "https://blakereimer.com",
     siteName: "Blake Reimer",
-    images: [
-      {
-        url: "https://chronark.com/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
     locale: "en-US",
     type: "website",
   },
