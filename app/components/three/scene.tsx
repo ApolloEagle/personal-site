@@ -95,6 +95,12 @@ const ThreeScene: FC = () => {
       setTimeout(() => {
         animate();
       }, fadeInDuration);
+
+      return () => {
+        renderer.dispose();
+        scene.remove();
+        document.querySelector("canvas")?.remove();
+      };
     }
   }, []);
 
