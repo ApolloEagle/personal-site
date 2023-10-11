@@ -37,16 +37,9 @@ export default function Home() {
       </h1>
       <div className="z-10 hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-300 px-2 sm:px-0">
-          I am a full stack developer building open source education solutions
-          for{" "}
-          <Link
-            target="_blank"
-            href="https://www.thoughtindustries.com/"
-            className="underline duration-500 hover:text-zinc-200"
-          >
-            Thought Industries
-          </Link>
+        <h2 className="text-sm text-zinc-300 px-12 sm:px-0">
+          A sofware engineer with a passion for building cutting-edge web and
+          mobile applications.
         </h2>
       </div>
     </div>
