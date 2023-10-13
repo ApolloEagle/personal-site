@@ -73,7 +73,7 @@ export default function Music() {
       {error && (
         <div className="flex justify-center items-center h-screen flex-col">
           <Skull color="white" size={100} />
-          <h2 className="text-white font-semibold text-3xl py-4">Oops!.</h2>
+          <h2 className="text-white font-semibold text-3xl py-4">Oops!</h2>
         </div>
       )}
     </div>
