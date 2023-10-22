@@ -12,7 +12,7 @@ interface Experience {
 export default function Experience() {
   const experience: Experience[] = [
     {
-      position: "Freelance Senior Full Stack Engineer",
+      position: "Senior Full Stack Engineer",
       company: "Upwork",
       startDate: "March, 2023",
       endDate: "Present",
@@ -25,7 +25,7 @@ export default function Experience() {
       ],
     },
     {
-      position: "JavaScript Application Engineer",
+      position: "Full Stack Developer",
       company: "Thought Industries",
       startDate: "February, 2022",
       endDate: "Present",

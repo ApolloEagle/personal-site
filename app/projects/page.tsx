@@ -1,5 +1,6 @@
 import { Card } from "../components/card";
 import { Navigation } from "../components/nav";
+import { Info } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -33,10 +34,15 @@ export default function Projects() {
                   needs.
                 </p>
               </div>
-              <div className="flex lg:flex-row flex-row-reverse justify-between items-end">
-                <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+              <div className="flex flex-row justify-between items-end">
+                <p className="text-zinc-200 hover:text-zinc-50">
                   <a href="https://developer.thoughtindustries.com/build/developer-guide">
-                    Read more <span aria-hidden="true">&rarr;</span>
+                    <span className="hidden lg:block">
+                      Read more <span aria-hidden="true">&rarr;</span>
+                    </span>
+                    <span className="block lg:hidden">
+                      <Info />
+                    </span>
                   </a>
                 </p>
                 <p>
@@ -60,10 +66,15 @@ export default function Projects() {
                   Problem solving mobile application built in React Native and
                   integrated with ChatGPT.
                 </p>
-                <div className="flex lg:flex-row flex-row-reverse justify-between items-end">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                <div className="flex flex-row justify-between items-end">
+                  <p className="text-zinc-200 hover:text-zinc-50">
                     <a href="https://apps.apple.com/us/app/question-master/id6446128075">
-                      Read more <span aria-hidden="true">&rarr;</span>
+                      <span className="hidden lg:block">
+                        Read more <span aria-hidden="true">&rarr;</span>
+                      </span>
+                      <span className="block lg:hidden">
+                        <Info />
+                      </span>
                     </a>
                   </p>
                   <p>
@@ -85,10 +96,15 @@ export default function Projects() {
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 mb-6">
                   Npm package for React Native loaders.
                 </p>
-                <div className="flex lg:flex-row flex-row-reverse justify-between items-end">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                <div className="flex flex-row justify-between items-end">
+                  <p className="text-zinc-200 hover:text-zinc-50">
                     <a href="https://www.npmjs.com/package/@apolloeagle/loading-dots">
+                    <span className="hidden lg:block">
                       Read more <span aria-hidden="true">&rarr;</span>
+                    </span>
+                    <span className="block lg:hidden">
+                      <Info />
+                    </span>
                     </a>
                   </p>
                   <p>
@@ -111,9 +127,16 @@ export default function Projects() {
               <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 mb-6">
                 Reaction gaming app.
               </p>
-              <div className="flex lg:flex-row flex-row-reverse justify-between items-end">
-                <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                  Coming Soon
+              <div className="flex flex-row justify-between items-end">
+                <p className="text-zinc-200 hover:text-zinc-50">
+                  <a href="https://apps.apple.com/us/app/rapid-dotz/id1669643824">
+                  <span className="hidden lg:block">
+                      Read more <span aria-hidden="true">&rarr;</span>
+                    </span>
+                    <span className="block lg:hidden">
+                      <Info />
+                    </span>
+                  </a>
                 </p>
                 <p>
                   <a href="https://skillicons.dev">
@@ -134,10 +157,15 @@ export default function Projects() {
               <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 mb-6">
                 Casual puzzle gaming app.
               </p>
-              <div className="flex lg:flex-row flex-row-reverse justify-between items-end">
-                <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+              <div className="flex flex-row justify-between items-end">
+                <p className="text-zinc-200 hover:text-zinc-50">
                   <a href="https://apps.apple.com/us/app/formis/id1634234837">
-                    Read more <span aria-hidden="true">&rarr;</span>
+                  <span className="hidden lg:block">
+                      Read more <span aria-hidden="true">&rarr;</span>
+                    </span>
+                    <span className="block lg:hidden">
+                      <Info />
+                    </span>
                   </a>
                 </p>
                 <p>

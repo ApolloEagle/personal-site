@@ -1,18 +1,24 @@
 ## Installation
 
-1. Install node using [nvm](https://github.com/nvm-sh/nvm)
+1. Install volta:
 
    ```sh
-   nvm install
+   curl https://get.volta.sh | bash
    ```
 
-2. Install dependencies
+2. Install node
+
+   ```sh
+   volta install node
+   ```
+
+3. Install dependencies
 
    ```sh
    npm i
    ```
 
-3. Start the development server
+4. Start the development server
 
    ```sh
    npm run dev
