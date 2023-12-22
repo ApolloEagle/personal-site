@@ -45,6 +45,7 @@ module.exports = {
         "fade-right": "fade-right 3s ease-in-out forwards",
         "slide-in": "slide-in 0.5s ease-in-out",
         music: "music 2.5s ease-in-out",
+        scaleIn: "scaleIn 1s ease-in-out",
       },
       keyframes: {
         "fade-in": {
@@ -102,6 +103,17 @@ module.exports = {
           "100%": {
             height: "14rem",
             opacity: 1,
+          },
+        },
+        scaleIn: {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "60%": {
+            transform: "scale(1.05)",
+          },
+          "100%": {
+            transform: "scale(1)",
           },
         },
         music: {

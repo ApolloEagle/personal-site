@@ -12,6 +12,22 @@ interface Experience {
 export default function Experience() {
   const experience: Experience[] = [
     {
+      position: "Senior Mobile Engineer",
+      company: "7 Oaks Group",
+      startDate: "October, 2023",
+      endDate: "Present",
+      responsibilities: [
+        " Develop and maintain mobile applications using React Native framework for both iOS and Android platforms",
+        "Collaborate with cross-functional teams to design, develop, test, and implement mobile applications that meet business requirements",
+        "Translate UI/UX design wireframes into high-quality code",
+        "Ensure the performance, quality, and responsiveness of applications",
+        "Identify and troubleshoot issues and bugs, and devise solutions to address them",
+        "Stay up-to-date with emerging trends and technologies in mobile development, and apply them to enhance the functionality and user experience of our mobile applications",
+        "Continuously improve the codebase, maintain code quality, and ensure the best possible performance, scalability, and maintainability of the code",
+        "Participate in code reviews and contribute to the development of best practices for mobile development",
+      ],
+    },
+    {
       position: "Senior Full Stack Engineer",
       company: "Upwork",
       startDate: "March, 2023",
@@ -28,7 +44,7 @@ export default function Experience() {
       position: "Full Stack Developer",
       company: "Thought Industries",
       startDate: "February, 2022",
-      endDate: "Present",
+      endDate: "October, 2023",
       responsibilities: [
         "Build and maintain React and React Native components to organize and display LMS data.",
         "Build and utilize S3 buckets and Cloudfront to host configurations for our headless CMS.",

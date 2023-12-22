@@ -1,6 +1,5 @@
 "use client";
 import { useMotionTemplate, useSpring } from "framer-motion";
-
 import { PropsWithChildren } from "react";
 
 export const Card: React.FC<PropsWithChildren> = ({ children }) => {
@@ -18,7 +17,7 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-300 border-zinc-400"
+      className={`overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-300 border-zinc-400 animate-scaleIn`}
     >
       {children}
     </div>
