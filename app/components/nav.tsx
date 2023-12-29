@@ -16,16 +16,36 @@ export const Navigation: React.FC = () => {
 
   useEffect(() => {
     if (!ref.current) return;
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersecting(entry.isIntersecting)
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      setIntersecting(entry.isIntersecting);
+    });
 
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (openMenu) {
+        setOpenMenu(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [openMenu]);
+
   const Menu: React.FC = () => (
-    <div className="flex flex-col justify-evenly items-center sm:hidden right-0 absolute w-screen h-56 mt-24 animate-slide-in">
+    <div
+      className={`flex flex-col justify-evenly items-center w-screen h-56 ${
+        openMenu
+          ? "animate-slide-in block"
+          : "animate-slide-out delay-1000 hidden"
+      } backdrop-blur bg-zinc-900/500  border-zinc-80`}
+    >
       {navigation.map((nav, idx) => (
         <Link
           key={idx}
@@ -44,10 +64,9 @@ export const Navigation: React.FC = () => {
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
-            : "bg-zinc-900/500  border-zinc-800 "
+            : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        {openMenu && <Menu />}
         <div className="flex flex-row-reverse items-center justify-between py-6 px-6 sm:px-12 w-screen">
           <div className="hidden sm:flex justify-between gap-8">
             {navigation.map((nav, idx) => (
@@ -74,6 +93,7 @@ export const Navigation: React.FC = () => {
             <img src="/favicon.png" className="w-12 h-12 rounded-md" />
           </Link>
         </div>
+        <Menu />
       </div>
     </header>
   );

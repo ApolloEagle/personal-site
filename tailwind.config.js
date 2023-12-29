@@ -44,6 +44,7 @@ module.exports = {
         "fade-left": "fade-left 3s ease-in-out forwards",
         "fade-right": "fade-right 3s ease-in-out forwards",
         "slide-in": "slide-in 0.5s ease-in-out",
+        "slide-out": "slide-out 0.5s ease-in-out",
         music: "music 2.5s ease-in-out",
         scaleIn: "scaleIn 1s ease-in-out",
       },
@@ -103,6 +104,16 @@ module.exports = {
           "100%": {
             height: "14rem",
             opacity: 1,
+          },
+        },
+        "slide-out": {
+          "0%": {
+            height: "14rem",
+            opacity: 1,
+          },
+          "100%": {
+            height: 0,
+            opacity: 0,
           },
         },
         scaleIn: {
