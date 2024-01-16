@@ -1,47 +1,126 @@
+"use client";
 import Link from "next/link";
-import React from "react";
-import Particles from "./components/particles";
+import Image from "next/image";
+import { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { Mail, Github, Mountain, Leaf, Droplet, Menu } from "lucide-react";
+import profilePic from "../public/profile.jpg";
+import type { AppProps } from "next/app";
+import { ThemeProvider, useThemeContext } from "./context";
 
-const navigation = [
+interface Navigation {
+  name: string;
+  href: string;
+}
+
+interface Social {
+  icon: ReactNode;
+  href: string;
+}
+
+const navigation: Navigation[] = [
   { name: "Experience", href: "/experience" },
   { name: "Projects", href: "/projects" },
   { name: "Music", href: "/music" },
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-t from-blue-500 to-bg-black/20">
-      <Analytics />
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-400 hover:text-zinc-200"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={500}
-      />
-      <div className=" z-10 hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <h1 className="z-10 text-3xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
-        Blake Reimer
-      </h1>
-      <div className="z-10 hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-300 px-12 sm:px-0">
-          A sofware engineer with a passion for building cutting-edge web and
-          mobile applications.
-        </h2>
+const socials: Social[] = [
+  { icon: <Github />, href: "https://github.com/ApolloEagle" },
+  { icon: <Mail />, href: "mailto:sobeksea@gmail.com" },
+];
+
+const NavBar = () => {
+  const { theme, setTheme } = useThemeContext();
+
+  const Web = () => (
+    <div className="justify-between items-center hidden sm:flex">
+      <Link href="/" className="duration-200 text-zinc-300 hover:text-zinc-100">
+        <Mountain size={36} />
+      </Link>
+      <div className="flex">
+        {navigation.map((item) => (
+          <Link
+            href={item.href}
+            className="duration-200 text-zinc-300 hover:text-zinc-100 px-3 text-lg"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+      <div className="flex">
+        {socials.map((item) => (
+          <Link
+            className="duration-200 text-zinc-300 hover:text-zinc-100"
+            href={item.href}
+          >
+            <div className="px-2">{item.icon}</div>
+          </Link>
+        ))}
+      </div>
+      <button
+        className={`absolute -top-3 -right-3 duration-200 text-zinc-300 hover:text-zinc-100 ${
+          theme ? "bg-sky-600" : "bg-emerald-600"
+        } p-1 rounded-md active:translate-y-1`}
+        onClick={() => setTheme(!theme)}
+      >
+        {theme ? <Droplet size={18} /> : <Leaf size={18} />}
+      </button>
+    </div>
+  );
+
+  const Mobile = () => (
+    <div className="flex justify-between items-center sm:hidden">
+      <Link href="/" className="duration-200 text-zinc-300 hover:text-zinc-100">
+        <Mountain size={36} />
+      </Link>
+      <div className="flex items-center">
+        <button
+          className={`duration-200 text-zinc-300 hover:text-zinc-100 ${
+            theme ? "bg-sky-600" : "bg-emerald-600"
+          } p-1 rounded-md active:scale-90 tou`}
+          onClick={() => setTheme(!theme)}
+        >
+          {theme ? <Droplet /> : <Leaf />}
+        </button>
+        <button>
+          <Menu className="duration-200 text-zinc-300 hover:text-zinc-100 ml-4 active:scale-90" />
+        </button>
       </div>
     </div>
+  );
+
+  return (
+    <nav
+      className={`${
+        theme ? "bg-emerald-800" : "bg-sky-800"
+      } rounded-xl fixed top-8 w-[100%] lg:w-[1024px] p-3`}
+    >
+      <Web />
+      <Mobile />
+    </nav>
+  );
+};
+
+const Content = () => {
+  const { theme } = useThemeContext();
+
+  return (
+    <div
+      className={`flex flex-col items-center justify-center w-screen h-screen overflow-hidden ${
+        theme ? "bg-emerald-900" : "bg-sky-900"
+      }`}
+    >
+      <Analytics />
+      <NavBar />
+    </div>
+  );
+};
+
+export default function Home({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider>
+      <Content />
+    </ThemeProvider>
   );
 }

@@ -1,17 +1,16 @@
 import "../global.css";
-import { Inter } from "next/font/google";
-import LocalFont from "@next/font/local";
 import { Metadata } from "next";
+import { roboto_serif } from "./assets/fonts";
 
 export const metadata: Metadata = {
   title: {
     default: "Blake Reimer",
     template: "%s | Blake Reimer",
   },
-  description: "Software engineer at Thought Industries.",
+  description: "Senior Mobile Engineer.",
   openGraph: {
     title: "Blake Reimer",
-    description: "Software engineer at Thought Industries.",
+    description: "Senior Mobile Engineer.",
     url: "https://blakereimer.com",
     siteName: "Blake Reimer",
     locale: "en-US",
@@ -32,15 +31,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
   },
 };
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
-});
 
 export default function RootLayout({
   children,
@@ -48,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en" className={roboto_serif.className}>
       <body
         className={`bg-black ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
