@@ -55,7 +55,7 @@ export default function Music() {
   };
 
   return (
-    <div className="flex justify-center items-center h-full sm:h-screen w-screen flex-col animate-[fade-in_0.5s_ease-in-out_forwards] p-12">
+    <div className="flex justify-center items-center h-full sm:h-screen w-screen flex-col animate-[fade-in_0.5s_ease-in-out_forwards] p-6">
       <div className="flex justify-center items-center flex-col mb-4 sm:mb-16">
         <Image
           src="/cover.png"
