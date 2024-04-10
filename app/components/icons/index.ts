@@ -4,6 +4,7 @@ import ITunesIcon from "./itunes";
 import PandoraIcon from "./pandora";
 import IHeartRadioIcon from "./iheart-radio";
 import TikTokIcon from "./tiktok";
+import SoundCloudIcon from "./soundcloud";
 
 export {
   SpotifyIcon,
@@ -12,4 +13,5 @@ export {
   PandoraIcon,
   IHeartRadioIcon,
   TikTokIcon,
+  SoundCloudIcon,
 };

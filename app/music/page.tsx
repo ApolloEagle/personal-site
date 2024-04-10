@@ -7,6 +7,7 @@ import {
   PandoraIcon,
   IHeartRadioIcon,
   TikTokIcon,
+  SoundCloudIcon,
 } from "../components/icons";
 import { ChevronRight } from "lucide-react";
 
@@ -46,7 +47,13 @@ export default function Music() {
       id: 5,
       icon: <TikTokIcon />,
       label: "Tik Tok",
-      link: "https://www.tiktok.com/",
+      link: "https://www.tiktok.com/t/ZPRTGg4oj/",
+    },
+    {
+      id: 6,
+      icon: <SoundCloudIcon />,
+      label: "Sound Cloud",
+      link: "https://soundcloud.com/blake-reimer-749464291/dont-cry",
     },
   ];
 
