@@ -1,46 +1,37 @@
-import Link from "next/link";
-import React from "react";
-import Particles from "./components/particles";
-import { Analytics } from "@vercel/analytics/react";
-
-const navigation = [
-  { name: "Experience", href: "/experience" },
-  { name: "Projects", href: "/projects" },
-  { name: "Music", href: "/music" },
-  { name: "Contact", href: "/contact" },
-];
+"use client";
+import {
+  Socials,
+  Text,
+  ContactForm,
+  WorkList,
+  ProfilePicture,
+  CameraRoll,
+} from "./components";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
+  const pathname = usePathname();
+
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-t from-blue-500 to-bg-black/20">
-      <Analytics />
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-400 hover:text-zinc-200"
+    <div className="mx-auto w-full max-w-7xl lg:px-8 pb-8 overflow-x-hidden">
+      <div className="relative px-4 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-2xl lg:max-w-5xl">
+          <div className="max-w-2xl">
+            <div
+              className={`${pathname !== "/" ? "hidden md:block" : "block"}`}
             >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={500}
-      />
-      <div className=" z-10 hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <h1 className="z-10 text-3xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
-        Blake Reimer
-      </h1>
-      <div className="z-10 hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-300 px-12 sm:px-0">
-          A sofware engineer with a passion for building cutting-edge web and
-          mobile applications.
-        </h2>
+              <ProfilePicture size={16} />
+            </div>
+            <div className="mt-8">
+              <Text text="Senior Software Engineer." title />
+            </div>
+            <Text text="My name is Blake and I am a software engineer based out of Colorado. I build cutting-edge web and mobile applications." />
+            <Socials />
+          </div>
+          <CameraRoll />
+          <ContactForm />
+          <WorkList />
+        </div>
       </div>
     </div>
   );

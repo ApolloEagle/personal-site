@@ -3,8 +3,8 @@ const IHeartRadioIcon = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
-      width="48px"
-      height="48px"
+      width="24px"
+      height="24px"
     >
       <linearGradient
         id="_s2BQWStB7wtVC-WSdqbJa"
@@ -15,8 +15,8 @@ const IHeartRadioIcon = () => {
         gradientTransform="matrix(1 0 0 -1 0 66)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#6dc7ff" />
-        <stop offset="1" stop-color="#e6abff" />
+        <stop offset="0" stopColor="#6dc7ff" />
+        <stop offset="1" stopColor="#e6abff" />
       </linearGradient>
       <path
         fill="url(#_s2BQWStB7wtVC-WSdqbJa)"
@@ -31,8 +31,8 @@ const IHeartRadioIcon = () => {
         gradientTransform="matrix(1 0 0 -1 0 488)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#1a6dff" />
-        <stop offset="1" stop-color="#c822ff" />
+        <stop offset="0" stopColor="#1a6dff" />
+        <stop offset="1" stopColor="#c822ff" />
       </linearGradient>
       <path
         fill="url(#_s2BQWStB7wtVC-WSdqbJb)"

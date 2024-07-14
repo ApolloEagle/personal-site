@@ -3,8 +3,8 @@ const PandoraIcon = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      width="48px"
-      height="48px"
+      width="24px"
+      height="24px"
     >
       <linearGradient
         id="N4IftKBesUZrf0eXFE0Yua"
@@ -14,8 +14,8 @@ const PandoraIcon = () => {
         y2="6.121"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#33bef0" />
-        <stop offset="1" stop-color="#0a85d9" />
+        <stop offset="0" stopColor="#33bef0" />
+        <stop offset="1" stopColor="#0a85d9" />
       </linearGradient>
       <path
         fill="url(#N4IftKBesUZrf0eXFE0Yua)"

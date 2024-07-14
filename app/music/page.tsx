@@ -1,99 +1,119 @@
-"use client";
-import Image from "next/image";
+import { ReactNode } from "react";
 import {
+  Text,
+  GitHub,
+  LinkedIn,
+  Email,
   SpotifyIcon,
   AppleMusicIcon,
-  ITunesIcon,
   PandoraIcon,
   IHeartRadioIcon,
   TikTokIcon,
   SoundCloudIcon,
-} from "../components/icons";
-import { ChevronRight } from "lucide-react";
+} from "../components";
+import Image from "next/image";
+
+interface Social {
+  label: string;
+  icon: ReactNode;
+  link: string;
+}
 
 export default function Music() {
-  const streamingPlatforms = [
+  const socials: Social[] = [
     {
-      id: 0,
+      label: "Listen on Spotify",
       icon: <SpotifyIcon />,
-      label: "Spotify",
-      link: "https://open.spotify.com/album/6biyqOWROlBog1FyrsIW9t",
+      link: "https://open.spotify.com/artist/2gBefV7HeOXQti7itVXKBz",
     },
     {
-      id: 1,
+      label: "Listen on Apple Music",
       icon: <AppleMusicIcon />,
-      label: "Apple Music",
-      link: "https://music.apple.com/us/album/dont-cry-single/1738798141?uo=4&app=music&at=1001lry3&ct=dashboard",
+      link: "https://music.apple.com/us/artist/blake-reimer/1738791116",
     },
     {
-      id: 2,
-      icon: <ITunesIcon />,
-      label: "iTunes",
-      link: "https://music.apple.com/us/album/dont-cry-single/1738798141?uo=4&app=itunes&at=1001lry3&ct=dashboard",
-    },
-    {
-      id: 3,
+      label: "Listen on Pandora",
       icon: <PandoraIcon />,
-      label: "Pandora",
-      link: "https://www.pandora.com/artist/blake-reimer/dont-cry/ALPhrtbP2r2brc2",
+      link: "https://www.pandora.com/artist/blake-reimer/ARwrwtdXrf4K2n6",
     },
     {
-      id: 4,
+      label: "Listen on iHeart Radio",
       icon: <IHeartRadioIcon />,
-      label: "iHeart Radio",
-      link: "https://www.iheart.com/artist/blake-reimer-42725327/albums/dont-cry-263148168/",
+      link: "https://www.iheart.com/artist/blake-reimer-42725327/",
     },
     {
-      id: 5,
+      label: "Listen on TikTok",
       icon: <TikTokIcon />,
-      label: "Tik Tok",
       link: "https://www.tiktok.com/t/ZPRTGg4oj/",
     },
     {
-      id: 6,
+      label: "Listen on SoundCloud",
       icon: <SoundCloudIcon />,
-      label: "Sound Cloud",
-      link: "https://soundcloud.com/blake-reimer-749464291/dont-cry",
+      link: "https://soundcloud.com/blake-reimer-749464291",
     },
   ];
 
-  const navToURL = (link: string) => {
-    window.open(link, "_blank");
-  };
-
   return (
-    <div className="flex justify-center items-center h-full sm:h-screen w-screen flex-col animate-[fade-in_0.5s_ease-in-out_forwards] p-6">
-      <div className="flex justify-center items-center flex-col mb-4 sm:mb-16">
-        <Image
-          src="/cover.png"
-          alt="Album Cover"
-          width={300}
-          height={300}
-          style={{ borderRadius: 16, marginBottom: 32 }}
-        />
-        <h2 className="text-white font-semibold text-3xl mb-4 sm:mb-0">
-          Don't Cry
-        </h2>
-      </div>
-      <div className="flex flex-col sm:flex-row items-center justify-center w-full">
-        {streamingPlatforms.map(({ id, icon, link, label }) => (
-          <button
-            key={id}
-            onClick={() => navToURL(link)}
-            className="flex flex-row mx-2 items-center justify-between hover:none sm:hover:scale-110 transition duration-300 bg-zinc-800 sm:bg-transparent w-full sm:w-16 mb-4 sm:mb-0 rounded-md sm:rounded-none p-1"
-          >
-            <div className="flex flex-row items-center">
-              {icon}
-              <div className="block sm:hidden">
-                <p className="text-white ml-4">{label}</p>
+    <div className="mx-auto w-full max-w-7xl lg:px-8 pb-8 overflow-x-hidden ">
+      <div className="relative px-4 sm:px-8 lg:px-12 mt-2 sm:mt-24">
+        <div className="mx-auto max-w-2xl lg:max-w-5xl ">
+          <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12 ">
+            <div className="lg:pl-20">
+              <div className="max-w-xs px-2.5 lg:max-w-none">
+                <Image
+                  priority
+                  src="/test.jpeg"
+                  height={400}
+                  width={400}
+                  alt="Picture of the author"
+                  className="aspect-square rotate-2 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 mb-8"
+                />
               </div>
             </div>
-            <div className="block sm:hidden">
-              <ChevronRight color="white" />
+            <div className="lg:order-first lg:row-span-2">
+              <Text text="My Music." title />
+              <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                After listening to{" "}
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Them_Crooked_Vultures"
+                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                >
+                  Them Crooked Vultures,{" "}
+                </a>
+                for the first time in 2016, I became inspired to pick up my
+                first guitar and start learning how to play. Since then I have
+                become a songwriter, vocalist, and multi-instrumentalist. I have
+                enjoyed playing every instrument and singing each and every
+                note. Now I look forward to taking my music to the stage and
+                sharing my love with others 🤘
+              </p>
             </div>
-          </button>
-        ))}
+            <div className="lg:pl-20">
+              <ul role="list" className="flex flex-col gap-4">
+                {socials.map(({ label, link, icon }) => (
+                  <a
+                    key={label}
+                    aria-label={label}
+                    href={link}
+                    target="_blank"
+                    className="group flex flex-row gap-4 "
+                  >
+                    <div key={label} className="-m-1 p-1 hover:fill-teal-500">
+                      {icon}
+                    </div>
+                    <span className="group-hover:text-teal-500">{label}</span>
+                  </a>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
+export const metadata = {
+  title: "Music - Blake Reimer",
+};

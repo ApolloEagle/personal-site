@@ -1,100 +1,105 @@
 "use client";
-import { MoreHorizontal } from "lucide-react";
-import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import ProfilePicture from "./profile-picture";
+import { routes } from "../constants";
+import { Dropdown } from "./icons";
+import { useState } from "react";
 
-export const Navigation: React.FC = () => {
-  const ref = useRef<HTMLElement>(null);
-  const [openMenu, setOpenMenu] = useState(false);
-  const [isIntersecting, setIntersecting] = useState(true);
-  const navigation = [
-    { name: "Experience", href: "/experience" },
-    { name: "Projects", href: "/projects" },
-    { name: "Music", href: "/music" },
-    { name: "Contact", href: "/contact" },
-  ];
+const Nav = () => {
+  const pathname = usePathname();
+  const [modal, setModal] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!ref.current) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setIntersecting(entry.isIntersecting);
-    });
-
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (openMenu) {
-        setOpenMenu(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [openMenu]);
-
-  const Menu: React.FC = () => (
-    <div
-      className={`flex flex-col justify-evenly items-center w-screen h-56 ${
-        openMenu
-          ? "animate-slide-in block"
-          : "animate-slide-out delay-1000 hidden"
-      } backdrop-blur bg-zinc-900/500  border-zinc-80`}
-    >
-      {navigation.map((nav, idx) => (
-        <Link
-          key={idx}
-          href={nav.href}
-          className="duration-200 text-zinc-300 sm:text-zinc-400 hover:text-zinc-100 font-semibold"
-        >
-          {nav.name}
-        </Link>
-      ))}
-    </div>
+  const ModalMobile = () => (
+    <>
+      <div className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in dark:bg-black/80" />
+      <div className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 duration-150 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in dark:bg-zinc-900 dark:ring-zinc-800">
+        <div className="flex flex-row-reverse items-center justify-between">
+          <button onClick={() => setModal(false)} className="-m-1 p-1">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="h-6 w-6 text-zinc-500 dark:text-zinc-400"
+            >
+              <path
+                d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+          </button>
+          <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            Navigation
+          </h2>
+        </div>
+        <nav className="mt-6">
+          <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+            {routes.map(({ title, route }) => (
+              <li key={title}>
+                <a className="block py-2" href={route}>
+                  {title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 
   return (
-    <header ref={ref}>
-      <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
-          isIntersecting
-            ? "bg-zinc-900/0 border-transparent"
-            : "bg-zinc-900/500 border-zinc-800"
-        }`}
-      >
-        <div className="flex flex-row-reverse items-center justify-between py-6 px-6 sm:px-12 w-screen">
-          <div className="hidden sm:flex justify-between gap-8">
-            {navigation.map((nav, idx) => (
-              <Link
-                key={idx}
-                href={nav.href}
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                {nav.name}
-              </Link>
-            ))}
+    <div className="top-0 z-10 h-16 pt-6 sm:px-8 w-full mb-10">
+      {modal && <ModalMobile />}
+      <div className="sm:px-8 w-full">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="relative px-4 sm:px-8">
+            <div className="mx-auto max-w-2xl lg:max-w-5xl">
+              <div className="relative flex gap-4">
+                {pathname !== "/" ? (
+                  <div className="flex flex-1">
+                    <ProfilePicture size={10} />
+                  </div>
+                ) : (
+                  <div className="flex flex-1" />
+                )}
+                <div className="flex flex-1 justify-end md:justify-center">
+                  <nav className="pointer-events-auto hidden md:block">
+                    <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+                      {routes.map(({ title, route }, idx) => (
+                        <li key={title}>
+                          <a
+                            className={`relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400 ${
+                              route === pathname && "text-teal-500"
+                            }`}
+                            href={route}
+                          >
+                            {title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+                <div className="flex flex-1 justify-end md:justify-center">
+                  <div className="pointer-events-auto md:hidden">
+                    <button
+                      onClick={() => setModal(true)}
+                      className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    >
+                      Menu
+                      <Dropdown />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex sm:hidden">
-            <MoreHorizontal
-              className="w-6 h-6"
-              color="white"
-              onClick={() => setOpenMenu(!openMenu)}
-            />
-          </div>
-          <Link
-            href="/"
-            className="duration-200 text-zinc-300 hover:text-zinc-100"
-          >
-            <img src="/favicon.png" className="w-12 h-12 rounded-md" />
-          </Link>
         </div>
-        <Menu />
       </div>
-    </header>
+    </div>
   );
 };
+
+export default Nav;

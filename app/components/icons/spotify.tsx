@@ -3,8 +3,8 @@ const SpotifyIcon = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      width="48px"
-      height="48px"
+      width="24px"
+      height="24px"
     >
       <linearGradient
         id="tS~Tu1dsT5kMXF2Lct~HUa"
@@ -14,13 +14,13 @@ const SpotifyIcon = () => {
         y2="56.31"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#4caf50" />
-        <stop offset=".489" stop-color="#4aaf50" />
-        <stop offset=".665" stop-color="#43ad50" />
-        <stop offset=".79" stop-color="#38aa50" />
-        <stop offset=".892" stop-color="#27a550" />
-        <stop offset=".978" stop-color="#11a050" />
-        <stop offset="1" stop-color="#0a9e50" />
+        <stop offset="0" stopColor="#4caf50" />
+        <stop offset=".489" stopColor="#4aaf50" />
+        <stop offset=".665" stopColor="#43ad50" />
+        <stop offset=".79" stopColor="#38aa50" />
+        <stop offset=".892" stopColor="#27a550" />
+        <stop offset=".978" stopColor="#11a050" />
+        <stop offset="1" stopColor="#0a9e50" />
       </linearGradient>
       <path
         fill="#1BD760"
