@@ -33,7 +33,7 @@ const ProjectCard = ({
         {technologies.map((tech) => (
           <span
             key={tech}
-            className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300"
+            className="rounded-full dark:bg-teal-400/10 bg-teal-600/10 px-3 py-1 text-xs font-medium leading-5 dark:text-teal-300 text-teal-500"
           >
             {tech}
           </span>

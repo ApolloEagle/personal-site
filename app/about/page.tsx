@@ -48,7 +48,7 @@ export default function About() {
                 <a
                   target="_blank"
                   href="https://logrhythm.com/"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500 dark:text-zinc-300 text-zinc-800"
                 >
                   security intelligence company
                 </a>
@@ -56,7 +56,7 @@ export default function About() {
                 <a
                   target="_blank"
                   href="https://andavisolutions.com/greatvines-sales-management/"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500  dark:text-zinc-300 text-zinc-800"
                 >
                   start-up
                 </a>
@@ -64,7 +64,7 @@ export default function About() {
                 <a
                   target="_blank"
                   href="https://www.nutrien.com/"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500  dark:text-zinc-300 text-zinc-800"
                 >
                   large corporation
                 </a>
@@ -76,7 +76,7 @@ export default function About() {
                 <a
                   target="_blank"
                   href="https://blueravensolar.com/"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500  dark:text-zinc-300 text-zinc-800"
                 >
                   Blue Raven Solar
                 </a>
@@ -89,7 +89,7 @@ export default function About() {
                 skiing, hanging out with my wife and three dogs, or recording
                 <a
                   href="/music"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500 dark:text-zinc-300 text-zinc-800"
                 >
                   {" "}
                   music.
@@ -110,7 +110,7 @@ export default function About() {
                       <div key={label} className="-m-1 p-1 hover:fill-teal-500">
                         {icon}
                       </div>
-                      <span className="group-hover:text-teal-500 text-zinc-200 text-sm">
+                      <span className="group-hover:text-teal-500 dark:text-zinc-200 text-zinc-800 text-sm">
                         {label}
                       </span>
                     </a>
@@ -126,7 +126,7 @@ export default function About() {
                   <div className="-m-1 p-1 hover:fill-teal-500">
                     <Email />
                   </div>
-                  <span className="group-hover:text-teal-500 text-zinc-200 text-sm">
+                  <span className="group-hover:text-teal-500 dark:text-zinc-200 text-zinc-800 text-sm">
                     sobeksea@gmail.com
                   </span>
                 </a>

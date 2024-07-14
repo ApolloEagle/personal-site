@@ -77,7 +77,7 @@ export default function Music() {
                 <a
                   target="_blank"
                   href="https://en.wikipedia.org/wiki/Them_Crooked_Vultures"
-                  className="font-semibold hover:text-teal-500 text-zinc-300"
+                  className="font-semibold hover:text-teal-500 dark:text-zinc-300 text-zinc-800"
                 >
                   Them Crooked Vultures,{" "}
                 </a>

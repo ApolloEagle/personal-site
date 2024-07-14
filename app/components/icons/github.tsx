@@ -2,7 +2,7 @@ const GitHub = () => (
   <svg
     viewBox="0 0 24 24"
     aria-hidden="true"
-    className="h-6 w-6 fill-zinc-400 group-hover:fill-teal-500"
+    className="h-6 w-6 dark:fill-zinc-400 fill-zinc-500 group-hover:fill-teal-500"
   >
     <path
       fillRule="evenodd"
