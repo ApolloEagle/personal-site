@@ -10,7 +10,7 @@ const ProfilePicture = ({ size }: { size: number }) => {
           width={size * 4}
           alt="Picture of the author"
           priority
-          className="rounded-full dark:ring-1 p-0.5 dark:ring-zinc-600 mt-6"
+          className="rounded-full dark:ring-1 p-0.5 dark:ring-zinc-600 mt-0 lg:mt-6"
         />
       </a>
     </div>
