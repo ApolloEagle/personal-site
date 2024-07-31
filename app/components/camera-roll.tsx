@@ -29,8 +29,12 @@ const CameraRoll = () => {
       rotate: "-rotate-2",
     },
   ];
+
+  const criticalImage = cameraroll[0].source;
+
   return (
     <div className="flex flex-row w-screen gap-5 sm:gap-8 my-24 -ml-72">
+      <link rel="preload" as="image" href={criticalImage} />
       {cameraroll.map(({ id, source, rotate }) => (
         <div
           key={id}
