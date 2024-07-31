@@ -8,6 +8,7 @@ import {
   CameraRoll,
 } from "./components";
 import { usePathname } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Home() {
   const pathname = usePathname();
@@ -33,6 +34,7 @@ export default function Home() {
           <WorkList />
         </div>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
