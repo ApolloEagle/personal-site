@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { usePathname } from "next/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const pathname = usePathname();
@@ -35,6 +36,7 @@ export default function Home() {
         </div>
       </div>
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
