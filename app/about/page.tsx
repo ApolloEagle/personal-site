@@ -18,7 +18,7 @@ export default function About() {
     {
       label: "Follow on LinkedIn",
       icon: <LinkedIn />,
-      link: "https://www.linkedin.com/in/blake-reimer-91251b313/",
+      link: "https://www.linkedin.com/in/blakereimer/",
     },
   ];
 
