@@ -16,6 +16,8 @@ import {
   TikTokIcon,
   SoundCloudIcon,
   Dropdown,
+  AppleStoreIcon,
+  GooglePlayIcon,
 } from "./icons";
 import Socials from "./socials";
 import Text from "./text";
@@ -54,4 +56,6 @@ export {
   TikTokIcon,
   SoundCloudIcon,
   Dropdown,
+  AppleStoreIcon,
+  GooglePlayIcon,
 };

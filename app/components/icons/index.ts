@@ -14,6 +14,8 @@ import IHeartRadioIcon from "./iheart-radio";
 import TikTokIcon from "./tiktok";
 import SoundCloudIcon from "./soundcloud";
 import Dropdown from "./dropdown";
+import AppleStoreIcon from "./apple-store";
+import GooglePlayIcon from "./google-play";
 
 export {
   X,
@@ -32,4 +34,6 @@ export {
   TikTokIcon,
   SoundCloudIcon,
   Dropdown,
+  AppleStoreIcon,
+  GooglePlayIcon,
 };
