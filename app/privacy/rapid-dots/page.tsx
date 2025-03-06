@@ -52,8 +52,8 @@ export default function RapidDots() {
                 </a>{" "}
                 does not collect or store any from of private data from the
                 user. Apple and Google might collect data while using these
-                games. More details about Apple's Privacy Policy and Google
-                Play's Terms of Use below.
+                games. More details about Apple&apos;s Privacy Policy and Google
+                Play&apos;s Terms of Use below.
               </p>
             </div>
             <div className="lg:pl-20">
