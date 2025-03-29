@@ -16,7 +16,7 @@ export default function Projects() {
         />
       ),
       name: "Albatross",
-      link: "https://blueravensolar.com/",
+      webLink: "https://blueravensolar.com/",
       description: `Albatross is comprehensive solution designed to streamline and enhance the management of customers in the residential solar industry.`,
       technologies: [
         "React",
@@ -42,7 +42,7 @@ export default function Projects() {
         />
       ),
       name: "Helium",
-      link: "https://developer.thoughtindustries.com/docs/getting-started/",
+      webLink: "https://developer.thoughtindustries.com/docs/getting-started/",
       linkTitle: "developer.thoughtindustries.com",
       description: `A modern and powerful development platform for extending the capabilities and functionality of the Ti Enterprise Learning Cloud.`,
       technologies: [
@@ -71,7 +71,7 @@ export default function Projects() {
         />
       ),
       name: "Question Master",
-      link: "https://apps.apple.com/us/app/question-master/id6446128075",
+      appleLink: "https://apps.apple.com/us/app/question-master/id6446128075",
       linkTitle: "apps.apple.com",
       description: `Problem solving mobile application built in React Native and integrated with ChatGPT.`,
       technologies: [
@@ -98,7 +98,7 @@ export default function Projects() {
         />
       ),
       name: "Loading Dots",
-      link: "https://www.npmjs.com/package/@apolloeagle/loading-dots",
+      webLink: "https://www.npmjs.com/package/@apolloeagle/loading-dots",
       linkTitle: "npmjs.com",
       description: `Npm package for React Native loaders.`,
       technologies: ["React Native", "TypeScript"],
@@ -115,8 +115,10 @@ export default function Projects() {
           className="rounded-full h-8 w-8"
         />
       ),
-      name: "Rapid Dots",
-      link: "https://apps.apple.com/us/app/rapid-dotz/id1669643824",
+      name: "Rapid Dotz",
+      appleLink: "https://apps.apple.com/us/app/rapid-dotz/id1669643824",
+      androidLink:
+        "https://play.google.com/store/apps/details?id=com.apolloeagle.rapiddots",
       linkTitle: "apps.apple.com",
       description: `React Native gaming app.`,
       technologies: ["React Native", "TypeScript"],
@@ -134,7 +136,7 @@ export default function Projects() {
         />
       ),
       name: "Formis",
-      link: "https://apps.apple.com/us/app/formis/id1634234837",
+      appleLink: "https://apps.apple.com/us/app/formis/id1634234837",
       linkTitle: "apps.apple.com",
       description: `Casual puzzle game.`,
       technologies: ["Swift"],

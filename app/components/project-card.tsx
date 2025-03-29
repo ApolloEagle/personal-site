@@ -1,30 +1,100 @@
 import { ReactNode } from "react";
-import { Link } from "./icons";
+import { AppleStoreIcon, GooglePlayIcon, Link } from "./icons";
 
-const ProjectCard = ({
-  image,
-  link,
-  name,
-  description,
-  technologies,
-}: {
+interface ProjectCardProps {
   image: ReactNode;
-  link: string;
+  webLink?: string;
+  appleLink?: string;
+  androidLink?: string;
   name: string;
   description: string;
   technologies: string[];
-}) => {
+}
+
+const ProjectCard = ({
+  image,
+  webLink,
+  appleLink,
+  androidLink,
+  name,
+  description,
+  technologies,
+}: ProjectCardProps) => {
+  const AppLink = ({
+    webLink,
+    appleLink,
+    androidLink,
+  }: {
+    webLink: string;
+    appleLink: string;
+    androidLink: string;
+  }) => {
+    if (appleLink && androidLink) {
+      return (
+        <div className="flex flex-row gap-4 items-center">
+          <a
+            href={androidLink}
+            target="_blank"
+            className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+          >
+            <GooglePlayIcon />
+          </a>
+          <a
+            href={appleLink}
+            target="_blank"
+            className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+          >
+            <AppleStoreIcon />
+          </a>
+        </div>
+      );
+    } else if (appleLink) {
+      return (
+        <a
+          href={appleLink}
+          target="_blank"
+          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+        >
+          <AppleStoreIcon />
+        </a>
+      );
+    } else if (androidLink) {
+      return (
+        <a
+          href={androidLink}
+          target="_blank"
+          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+        >
+          <GooglePlayIcon />
+        </a>
+      );
+    } else {
+      return (
+        <a
+          href={webLink}
+          target="_blank"
+          className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+        >
+          <Link />
+        </a>
+      );
+    }
+  };
+
   return (
-    <li className="group relative flex flex-col items-start">
-      <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        {image}
+    <li className="group relative flex flex-col items-start transition hover:dark:bg-zinc-800/50 p-4 rounded-lg">
+      <div className="flex flex-row items-center justify-between w-full">
+        <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+          {image}
+        </div>
+        <AppLink
+          appleLink={appleLink as string}
+          androidLink={androidLink as string}
+          webLink={webLink as string}
+        />
       </div>
       <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-        <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
-        <a href={link} target="_blank">
-          <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-          <span className="relative z-10">{name}</span>
-        </a>
+        {name}
       </h2>
       <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         {description}
